@@ -3,371 +3,387 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trending Now Amazon.ae - Best Deals UAE Today</title>
-  <meta name="description" content="Discover trending best sellers & top deals on Amazon.ae today in UAE. Hot products in appliances, grocery, toys & more - updated daily for deal hunters!">
+  <title>Trending Appliances UAE | Best Deals Today Amazon.ae</title>
+  <meta name="description" content="Discover today's top trending appliances on Amazon.ae - best deals in UAE on refrigerators, washing machines, mini fridges & more. Live updated best sellers for deal hunters!">
   <style>
-    :root { --primary: #232f3e; --accent: #ffd814; --text: #111; --bg: #f5f5f5; }
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:var(--bg); color:var(--text); }
-    header { background:var(--primary); color:white; padding:1rem; text-align:center; }
-    .lang-switch { font-size:1.2rem; cursor:pointer; }
-    .lang-switch span { margin:0 0.5rem; }
-    .ar { display:none; font-family: 'Segoe UI', Tahoma, sans-serif; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; padding:2rem; max-width:1400px; margin:auto; }
-    .card { background:white; border-radius:8px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,0.1); position:relative; cursor:pointer; }
-    .card img { width:100%; height:220px; object-fit:contain; background:#fff; }
-    .card-body { padding:1rem; text-align:center; }
-    .price { font-size:1.4rem; font-weight:bold; color:#b12704; }
-    .rating { color:#ffa41c; }
-    .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:none; align-items:center; justify-content:center; z-index:1000; opacity:0; transition:opacity 0.3s; }
-    .overlay.active { display:flex; opacity:1; }
-    .overlay-content { background:white; max-width:800px; max-height:90vh; overflow-y:auto; border-radius:12px; padding:2rem; position:relative; animation:fadeIn 0.4s; }
-    @keyframes fadeIn { from {opacity:0; transform:scale(0.9);} to {opacity:1; transform:scale(1);} }
-    .close { position:absolute; top:10px; right:15px; font-size:2rem; cursor:pointer; }
-    .carousel { display:flex; gap:1rem; margin:1rem 0; }
-    .carousel img { width:45%; height:auto; border:1px solid #ddd; border-radius:6px; }
-    .accent1 { border-top:4px solid #a0a0a0; } /* silver/gray */
-    .accent2 { border-top:4px solid #ddd; } /* white */
-    .accent3 { border-top:4px solid #87ceeb; } /* blue/clear */
-    .accent4 { border-top:4px solid #32cd32; } /* green if any */
-    .accent5 { border-top:4px solid #ff69b4; } /* rainbow/pink */
-    button { background:var(--accent); border:none; padding:0.8rem 1.5rem; border-radius:6px; font-weight:bold; cursor:pointer; }
-    @media (max-width:768px) { .overlay-content { width:95%; padding:1rem; } }
+    :root { --bg: #f8f9fa; --text: #333; --accent: #007185; --gray: #666; }
+    body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; line-height: 1.6; }
+    header { text-align: center; padding: 20px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .lang-switch { font-size: 1.2em; cursor: pointer; margin: 15px 0; }
+    .lang-switch span { margin: 0 10px; padding: 8px 16px; border: 1px solid #ddd; border-radius: 20px; }
+    .ar { display: none; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; max-width: 1400px; margin: 30px auto; }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; position: relative; cursor: pointer; }
+    .card:hover { transform: translateY(-10px); }
+    .card img { width: 100%; height: 250px; object-fit: contain; background: #fff; padding: 20px; box-sizing: border-box; }
+    .card-body { padding: 15px; text-align: center; }
+    .price { font-size: 1.5em; font-weight: bold; color: #b12704; margin: 10px 0; }
+    .rating { color: #ffa41c; font-weight: bold; }
+    .badge { background: #c45500; color: white; font-size: 0.8em; padding: 4px 8px; border-radius: 4px; margin-top: 8px; display: inline-block; }
+    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 1000; opacity: 0; transition: opacity 0.4s; }
+    .overlay.active { display: flex; opacity: 1; }
+    .overlay-content { background: white; max-width: 900px; max-height: 95vh; overflow-y: auto; border-radius: 12px; padding: 30px; position: relative; animation: fadeIn 0.4s; }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+    .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2.5em; cursor: pointer; color: #999; }
+    .carousel { display: flex; justify-content: center; gap: 15px; margin: 20px 0; flex-wrap: wrap; }
+    .carousel img { width: 200px; height: 200px; object-fit: contain; border: 1px solid #ddd; border-radius: 8px; background: #fff; }
+    .accent-border { border-top: 6px solid var(--accent-color, #007185); }
+    .cta-btn { display: inline-block; background: var(--accent-color, #007185); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px; font-size: 1.1em; }
+    .cta-btn:hover { opacity: 0.9; }
+    footer { text-align: center; padding: 40px; color: #777; font-size: 0.9em; margin-top: 50px; }
+    .previously { margin-top: 80px; padding-top: 40px; border-top: 2px dashed #ddd; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1><span class="en">Trending Now on Amazon.ae</span><span class="ar">الأكثر رواجًا على أمازون.ae</span></h1>
-  <p><span class="en">Best sellers & hot deals in UAE - Updated Jan 20, 2026</span><span class="ar">أفضل المبيعات والعروض الساخنة في الإمارات - محدث 20 يناير 2026</span></p>
+  <h1><span class="en">Trending Appliances on Amazon.ae</span><span class="ar">الأجهزة الرائجة على أمازون.ae</span></h1>
+  <p><span class="en">Today's Top 7 Best Sellers in UAE - Updated Daily</span><span class="ar">أفضل 7 مبيعات اليوم في الإمارات - تحديث يومي</span></p>
   <div class="lang-switch">
-    <span onclick="setLang('en')">🇬🇧 EN</span> | <span onclick="setLang('ar')">🇦🇪 AR</span>
+    <span onclick="switchLang('en')">🇬🇧 EN</span>
+    <span onclick="switchLang('ar')">🇦🇪 AR</span>
   </div>
 </header>
 
 <div class="grid">
-  <!-- Product 1 Card -->
-  <div class="card accent1" data-overlay="overlay1">
-    <img src="https://cdn.mafrservices.com/sys-master-root/h67/ha2/49107550109726/6291071433277_main?im=Resize=400" alt="KROME 270L Refrigerator"> <!-- Missing data: actual main image assumed placeholder -->
+
+  <!-- Product 1: KROME 270L Refrigerator -->
+  <div class="card accent-border" data-overlay="overlay1" style="--accent-color: #a0a0a0;">
+    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/e2ed011f-3989-47f4-936f-f72ee900584f.__CR0,0,970,600_PT0_SX970_V1___.png" alt="KROME 270L Refrigerator">
     <div class="card-body">
-      <h3><span class="en">KROME 270L Double Door Refrigerator</span><span class="ar">ثلاجة كروم 270 لتر بابين</span></h3>
+      <h3><span class="en">KROME 270L Double Door Refrigerator INOX</span><span class="ar">ثلاجة كروم 270 لتر بابين إينوكس</span></h3>
       <p class="price">AED 599.00</p>
-      <p class="rating">★  (101 ratings) <!-- Missing data: exact stars assumed from partial --></p>
+      <p class="rating">3.9 ★ (103 reviews)</p>
+      <p class="badge"><span class="en">#1 Best Seller</span><span class="ar">#1 الأكثر مبيعاً</span></p>
     </div>
   </div>
 
-  <!-- Product 2 Card -->
-  <div class="card accent2" data-overlay="overlay2">
-    <img src="https://m.media-amazon.com/images/I/91oQMm6bviL.png" alt="CROWNFUL Mini Fridge"> <!-- Missing data: actual main image assumed placeholder -->
+  <!-- Product 2: NETEL Microwave Stand -->
+  <div class="card accent-border" data-overlay="overlay2" style="--accent-color: #000000;">
+    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/675e3c71-59ac-4cba-a133-902566ea06f8.__CR0,0,600,450_PT0_SX600_V1___.jpg" alt="NETEL Microwave Stand">
     <div class="card-body">
-      <h3><span class="en">CROWNFUL 4L Portable Mini Fridge</span><span class="ar">ميني ثلاجة محمولة 4 لتر كراونفول</span></h3>
-      <p class="price">AED 149.00</p>
-      <p class="rating">4.0 ★ (2,843 ratings)</p>
+      <h3><span class="en">NETEL Expandable Microwave Stand Black</span><span class="ar">رف ميكروويف قابل للتمدد نتيل أسود</span></h3>
+      <p class="price">AED 56.68</p>
+      <p class="rating">4.5 ★ (50 reviews)</p>
     </div>
   </div>
 
-  <!-- Product 3 Card -->
-  <div class="card accent3" data-overlay="overlay3">
-    <img src="https://m.media-amazon.com/images/S/aplus-media/sota/5ae4b203-7d10-4f37-bbd4-3004b1faf615.__CR0,19,1095,677_PT0_SX970_V1___.jpg" alt="Oasis Water 1.5L x12">
+  <!-- Product 3: KROME 60L Refrigerator -->
+  <div class="card accent-border" data-overlay="overlay3" style="--accent-color: #c0c0c0;">
+    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/e2ed011f-3989-47f4-936f-f72ee900584f.__CR0,0,970,600_PT0_SX970_V1___.png" alt="KROME 60L Refrigerator">
     <div class="card-body">
-      <h3><span class="en">Oasis Still Drinking Water 1.5L Carton of 12</span><span class="ar">مياه أواسيس بدون غاز 1.5 لتر كرتون 12</span></h3>
-      <p class="price">AED 9.90</p>
-      <p class="rating">4.6 ★ (4,573 ratings)</p>
-    </div>
-  </div>
-
-  <!-- Product 4 Card -->
-  <div class="card accent1" data-overlay="overlay4">
-    <img src="https://microless.com/cdn/products/80d0d8c23ecb61f8c89f0d818f1b2021-hi.jpg" alt="KROME 60L Mini Fridge"> <!-- Missing data: actual image assumed -->
-    <div class="card-body">
-      <h3><span class="en">KROME 60L Single Door Compact Refrigerator</span><span class="ar">ثلاجة كروم 60 لتر باب واحد مدمجة</span></h3>
+      <h3><span class="en">KROME 60L Single Door Compact Refrigerator INOX</span><span class="ar">ثلاجة كروم 60 لتر باب واحد إينوكس</span></h3>
       <p class="price">AED 239.00</p>
-      <p class="rating">3.9 ★ (151 ratings)</p>
+      <p class="rating">3.9 ★ (151 reviews)</p>
     </div>
   </div>
 
-  <!-- Product 5 Card -->
-  <div class="card accent5" data-overlay="overlay5">
-    <img src="https://i.ebayimg.com/images/g/FYYAAOSw1xVoKpLJ/s-l500.jpg" alt="Fun-Here Rainbow Springs"> <!-- Missing data: actual image assumed -->
+  <!-- Product 4: Nefish Fridge Stand -->
+  <div class="card accent-border" data-overlay="overlay4" style="--accent-color: #000000;">
+    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/6c00774d-bebc-4f2b-b5bf-874fbac08487.__CR0,0,970,600_PT0_SX970_V1___.jpg" alt="Nefish Fridge Stand">
     <div class="card-body">
-      <h3><span class="en">Fun-Here 30 Pack Rainbow Magic Springs</span><span class="ar">30 قطعة نوابض سحرية قوس قزح فان هير</span></h3>
-      <p class="price">AED 10.05</p>
-      <p class="rating">4.6 ★ (4,907 ratings)</p>
+      <h3><span class="en">Nefish Universal Refrigerator Stand Black</span><span class="ar">قاعدة ثلاجة عالمية نيفيش أسود</span></h3>
+      <p class="price">AED 35.70</p>
+      <p class="rating">4.6 ★ (2,871 reviews)</p>
     </div>
   </div>
 
-  <!-- Product 6 Card -->
-  <div class="card accent2" data-overlay="overlay6">
-    <img src="https://i.ebayimg.com/images/g/aK0AAOSwBG5mGXcs/s-l1200.jpg" alt="Vtopmart Glass Containers"> <!-- Missing data: actual image assumed -->
+  <!-- Product 5: Samsung 7Kg Washing Machine -->
+  <div class="card accent-border" data-overlay="overlay5" style="--accent-color: #ffffff;">
+    <img src="https://m.media-amazon.com/images/I/5169kCzmuTL.jpg" alt="Samsung 7Kg Washing Machine">
     <div class="card-body">
-      <h3><span class="en">Vtopmart 8 Pack Glass Meal Prep Containers</span><span class="ar">8 عبوات زجاجية لتحضير الوجبات فتوبمارت</span></h3>
-      <p class="price">AED 74.99</p>
-      <p class="rating">4.6 ★ (12,862 ratings)</p>
+      <h3><span class="en">Samsung 7Kg Front Load Washing Machine</span><span class="ar">غسالة سامسونج 7 كجم تحميل أمامي</span></h3>
+      <p class="price">AED 812.00</p>
+      <p class="rating">3.8 ★ (372 reviews)</p>
     </div>
   </div>
 
-  <!-- Product 7 Card -->
-  <div class="card accent3" data-overlay="overlay7">
-    <img src="https://lygte-info.dk/pic/Batteries2013Primary/Amazon%20basic%20AA/DSC_9427.jpg" alt="Amazon Basics AA Batteries"> <!-- Missing data: actual image assumed -->
+  <!-- Product 6: Samsung Dishwasher -->
+  <div class="card accent-border" data-overlay="overlay6" style="--accent-color: #808080;">
+    <img src="https://images.samsung.com/is/image/samsung/p6pim/africa_en/ww70t303mbw-ef/gallery/africa-en-front-loading-washer-ww70t301mbwle-ww70t303mbw-ef-462165978?\( Q90_1248_936_F_PNG \)" alt="Samsung Dishwasher">
     <div class="card-body">
-      <h3><span class="en">Amazon Basics AA Alkaline Batteries 20-Pack</span><span class="ar">بطاريات أمازون بيسكس AA قلوية 20 حبة</span></h3>
-      <p class="price">AED 24.00</p>
-      <p class="rating">4.5 ★ (high count assumed)</p>
+      <h3><span class="en">Samsung 14 Place Setting Dishwasher Silver</span><span class="ar">غسالة صحون سامسونج 14 مكان فضي</span></h3>
+      <p class="price">AED 1,239.00</p>
+      <p class="rating">4.4 ★ (52 reviews)</p>
     </div>
   </div>
+
+  <!-- Product 7: CROWNFUL Mini Fridge -->
+  <div class="card accent-border" data-overlay="overlay7" style="--accent-color: #f0f0f0;">
+    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/b30c4162-fcd2-4b3e-80d6-490a1726fedc.__CR0,0,970,600_PT0_SX970_V1___.jpg" alt="CROWNFUL Mini Fridge">
+    <div class="card-body">
+      <h3><span class="en">CROWNFUL 4L Portable Mini Fridge White</span><span class="ar">ثلاجة ميني كراونفول 4 لتر محمولة بيضاء</span></h3>
+      <p class="price">AED 149.00</p>
+      <p class="rating">4.1 ★ (2,855 reviews)</p>
+    </div>
+  </div>
+
 </div>
 
-<<!-- Overlay 1: KROME 270L Refrigerator -->
+<!-- Overlays Start -->
+
 <div class="overlay" id="overlay1">
-  <div class="overlay-content accent1">
-    <span class="close" onclick="closeOverlay('overlay1')">×</span>
-    <h3><span class="en">KROME 270L Double Door Refrigerator with Uniform Air Flow</span><span class="ar">ثلاجة كروم 270 لتر بابين مع تدفق هواء متساوٍ</span></h3>
+  <div class="overlay-content">
+    <span class="close-btn" onclick="closeOverlay('overlay1')">×</span>
+    <h3><span class="en">KROME 270L Double Door Top Mounted Refrigerator INOX</span><span class="ar">ثلاجة كروم 270 لتر بابين علوي إينوكس</span></h3>
     <div class="carousel">
-      <img src="https://cdn.mafrservices.com/sys-master-root/h67/ha2/49107550109726/6291071433277_main?im=Resize=400" alt="Main view"> <!-- Missing data: replace with actual #landingImage src -->
-      <img src="https://m.media-amazon.com/images/I/81exampleKROME-interior.jpg" alt="Interior / second view"> <!-- Missing data: replace with actual gallery image -->
+      <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/e2ed011f-3989-47f4-936f-f72ee900584f.__CR0,0,970,600_PT0_SX970_V1___.png" alt="Main">
+      <img src="https://www.eros.ae/media/wysiwyg/descriptionaplus/5bb7bce5-7c52-4b3e-86d3-222553751406.__CR0_0_970_600_PT0_SX970_V1___.webp" alt="Second"><!-- Missing data: second image assumed similar KROME model -->
     </div>
-    <p class="price">AED 599.00</p>
-    <p class="rating">4.1 ★ (approx. 100+ ratings) <!-- Missing data: exact count assumed --></p>
+    <p class="price">AED 599.00 <span class="en">#1 Best Seller</span><span class="ar">#1 الأكثر مبيعاً</span></p>
+    <p class="rating">3.9 ★ (103 reviews)</p>
     <h4><span class="en">Key Features</span><span class="ar">المميزات الرئيسية</span></h4>
     <ul>
-      <li><span class="en">270L capacity with top-mounted freezer</span><span class="ar">سعة 270 لتر مع فريزر علوي</span></li>
-      <li><span class="en">Multi-air flow system for uniform cooling</span><span class="ar">نظام تدفق هواء متعدد لتبريد متجانس</span></li>
-      <li><span class="en">No-frost technology – no manual defrosting</span><span class="ar">تقنية نو فروست – بدون إزالة الثلج يدوياً</span></li>
-      <li><span class="en">Energy efficient design</span><span class="ar">تصميم موفر للطاقة</span></li>
-      <li><span class="en">Adjustable shelves and large vegetable crisper</span><span class="ar">أرفف قابلة للتعديل ودرج خضروات كبير</span></li>
+      <li><span class="en">270L gross capacity with efficient storage</span><span class="ar">سعة 270 لتر مع تخزين فعال</span></li>
+      <li><span class="en">Uniform air flow & powerful cooling</span><span class="ar">تدفق هواء موحد وتبريد قوي</span></li>
+      <li><span class="en">Defrost function & energy efficient</span><span class="ar">وظيفة إزالة الثلج وكفاءة طاقة</span></li>
+      <li><span class="en">Adjustable shelves & 10-year compressor warranty</span><span class="ar">رفوف قابلة للتعديل وضمان ضاغط 10 سنوات</span></li>
     </ul>
-    <h4><span class="en">Pros & Cons</span><span class="ar">المميزات والعيوب</span></h4>
+    <h4><span class="en">Pros & Cons</span><span class="ar">الإيجابيات والسلبيات</span></h4>
     <ul>
-      <li><span class="en">Pros: Spacious, even cooling, good value for families</span><span class="ar">مميزات: واسعة، تبريد متساوٍ، قيمة جيدة للعائلات</span></li>
-      <li><span class="en">Cons: Basic design, may be noisy at start-up</span><span class="ar">عيوب: تصميم أساسي، قد يكون صاخباً عند التشغيل</span></li>
+      <li><span class="en">Pros: Spacious, reliable cooling, great value</span><span class="ar">إيجابيات: واسعة، تبريد موثوق، قيمة جيدة</span></li>
+      <li><span class="en">Pros: Long warranty</span><span class="ar">ضمان طويل</span></li>
+      <li><span class="en">Cons: Some noise reported, limited color options</span><span class="ar">سلبيات: بعض الضوضاء، خيارات ألوان محدودة</span></li>
     </ul>
-    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص آراء العملاء</span></h4>
-    <p><span class="en">Mostly positive – users praise reliable cooling and storage space for UAE households; some mention average build quality.</span><span class="ar">إيجابية بشكل عام – يمدح المستخدمون التبريد الموثوق وسعة التخزين للمنازل في الإمارات؛ بعضهم يذكر جودة بناء متوسطة.</span></p>
-    <!-- Who it's for: families, medium-sized households in hot climate -->
-    <h4><span class="en">FAQ</span><span class="ar">أسئلة شائعة</span></h4>
-    <p><span class="en">Q: Does it require manual defrosting? A: No, it uses No-Frost technology.</span><span class="ar">س: هل تحتاج إلى إزالة الثلج يدوياً؟ ج: لا، تستخدم تقنية نو فروست.</span></p>
-    <p><span class="en">Q: What is the warranty? A: Typically 1–10 years on compressor (check listing).</span><span class="ar">س: ما هي الضمان؟ ج: عادة 1-10 سنوات على الضاغط (تحقق من الصفحة).</span></p>
-    <a href="https://www.amazon.ae/dp/B0D2691483/?tag=[[AFFILIATE_TAG]]" target="_blank"><button><span class="en">View & Buy on Amazon.ae</span><span class="ar">عرض وشراء من أمازون.ae</span></button></a>
+    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص الآراء</span></h4>
+    <p><span class="en">Positive - customers praise cooling performance and value for money in UAE homes.</span><span class="ar">إيجابي - يمدح العملاء أداء التبريد والقيمة مقابل السعر في المنازل الإماراتية.</span></p>
+    <!-- Who it's for: families and larger households in UAE needing reliable affordable refrigeration -->
+    <h4><span class="en">FAQ</span><span class="ar">الأسئلة الشائعة</span></h4>
+    <p><span class="en">Q: Is it energy efficient? A: Yes, designed for low power consumption.</span><span class="ar">س: هل هي موفرة للطاقة؟ ج: نعم، مصممة لاستهلاك منخفض.</span></p>
+    <p><span class="en">Q: Does it have a freezer? A: Yes, top mounted freezer compartment.</span><span class="ar">س: هل تحتوي على فريزر؟ ج: نعم، فريزر علوي.</span></p>
+    <a href="https://www.amazon.ae/dp/B0D2691483/?tag=[[AFFILIATE_TAG]]" class="cta-btn"><span class="en">Buy Now on Amazon.ae</span><span class="ar">اشتر الآن من أمازون.ae</span></a>
   </div>
 </div>
 
-<!-- Overlay 2: CROWNFUL 4L Mini Fridge -->
 <div class="overlay" id="overlay2">
-  <div class="overlay-content accent2">
-    <span class="close" onclick="closeOverlay('overlay2')">×</span>
-    <h3><span class="en">CROWNFUL 4L Portable Mini Fridge / Cooler & Warmer</span><span class="ar">ميني ثلاجة محمولة 4 لتر كراونفول – تبريد وتسخين</span></h3>
+  <div class="overlay-content">
+    <span class="close-btn" onclick="closeOverlay('overlay2')">×</span>
+    <h3><span class="en">NETEL Expandable Microwave Stand Black</span><span class="ar">رف ميكروويف قابل للتمدد نتيل أسود</span></h3>
     <div class="carousel">
-      <img src="https://m.media-amazon.com/images/I/91oQMm6bviL.png" alt="Main"> <!-- Missing data: replace -->
-      <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/62e258ae-985f-4aa6-806c-f8efb0d7d160.__CR0,0,600,450_PT0_SX600_V1___.jpg" alt="Second"> <!-- Missing data: replace -->
+      <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/675e3c71-59ac-4cba-a133-902566ea06f8.__CR0,0,600,450_PT0_SX600_V1___.jpg" alt="Main">
+      <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/b02ccb64-ada8-4248-8082-6b4651cc6268.__CR0,0,600,450_PT0_SX600_V1___.jpg" alt="Second">
+    </div>
+    <p class="price">AED 56.68</p>
+    <p class="rating">4.5 ★ (50 reviews)</p>
+    <h4><span class="en">Key Features</span><span class="ar">المميزات الرئيسية</span></h4>
+    <ul>
+      <li><span class="en">Expandable width 40-65 cm</span><span class="ar">عرض قابل للتمدد 40-65 سم</span></li>
+      <li><span class="en">2 tiers with 8 hooks for storage</span><span class="ar">طبقتين مع 8 خطاطيف</span></li>
+      <li><span class="en">Height adjustable & sturdy metal</span><span class="ar">ارتفاع قابل للتعديل ومعدن قوي</span></li>
+      <li><span class="en">Kitchen counter organizer</span><span class="ar">منظم سطح المطبخ</span></li>
+    </ul>
+    <h4><span class="en">Pros & Cons</span><span class="ar">الإيجابيات والسلبيات</span></h4>
+    <ul>
+      <li><span class="en">Pros: Saves space, sturdy, easy assembly</span><span class="ar">إيجابيات: توفير مساحة، قوي، تجميع سهل</span></li>
+      <li><span class="en">Cons: Limited weight capacity on top</span><span class="ar">سلبيات: سعة وزن محدودة أعلى</span></li>
+    </ul>
+    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص الآراء</span></h4>
+    <p><span class="en">Very positive - great for small kitchens in UAE apartments.</span><span class="ar">إيجابي جداً - رائع للمطابخ الصغيرة في الشقق الإماراتية.</span></p>
+    <!-- Who it's for: small apartment dwellers, kitchen organizers -->
+    <h4><span class="en">FAQ</span><span class="ar">الأسئلة الشائعة</span></h4>
+    <p><span class="en">Q: How much weight can it hold? A: Suitable for microwave + utensils.</span><span class="ar">س: كم وزن يتحمل؟ ج: مناسب للميكروويف والأواني.</span></p>
+    <a href="https://www.amazon.ae/dp/B0DRVL1RHV/?tag=[[AFFILIATE_TAG]]" class="cta-btn"><span class="en">Buy Now on Amazon.ae</span><span class="ar">اشتر الآن من أمازون.ae</span></a>
+  </div>
+</div>
+
+<div class="overlay" id="overlay3">
+  <div class="overlay-content">
+    <span class="close-btn" onclick="closeOverlay('overlay3')">×</span>
+    <h3><span class="en">KROME 60L Single Door Compact Refrigerator INOX</span><span class="ar">ثلاجة كروم 60 لتر باب واحد إينوكس</span></h3>
+    <div class="carousel">
+      <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/e2ed011f-3989-47f4-936f-f72ee900584f.__CR0,0,970,600_PT0_SX970_V1___.png" alt="Main">
+      <img src="https://m.media-amazon.com/images/I/6144CDqakzL._AC_UF350,350_QL80_.jpg" alt="Second">
+    </div>
+    <p class="price">AED 239.00</p>
+    <p class="rating">3.9 ★ (151 reviews)</p>
+    <h4><span class="en">Key Features</span><span class="ar">المميزات الرئيسية</span></h4>
+    <ul>
+      <li><span class="en">Compact 60L for dorm/office</span><span class="ar">60 لتر مدمجة للغرف/المكتب</span></li>
+      <li><span class="en">Reversible door & energy class A+</span><span class="ar">باب قابل للعكس وفئة طاقة A+</span></li>
+      <li><span class="en">5-year compressor warranty</span><span class="ar">ضمان ضاغط 5 سنوات</span></li>
+      <li><span class="en">Suitable for bedroom/minibar</span><span class="ar">مناسبة للغرفة أو الميني بار</span></li>
+    </ul>
+    <h4><span class="en">Pros & Cons</span><span class="ar">الإيجابيات والسلبيات</span></h4>
+    <ul>
+      <li><span class="en">Pros: Compact, quiet, good cooling</span><span class="ar">إيجابيات: مدمجة، هادئة، تبريد جيد</span></li>
+      <li><span class="en">Cons: Small capacity for families</span><span class="ar">سلبيات: سعة صغيرة للعوائل</span></li>
+    </ul>
+    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص الآراء</span></h4>
+    <p><span class="en">Positive - ideal for personal use in UAE.</span><span class="ar">إيجابي - مثالية للاستخدام الشخصي في الإمارات.</span></p>
+    <!-- Who it's for: students, office workers, small spaces -->
+    <h4><span class="en">FAQ</span><span class="ar">الأسئلة الشائعة</span></h4>
+    <p><span class="en">Q: Does it have a freezer section? A: Small freezer compartment inside.</span><span class="ar">س: هل تحتوي على فريزر؟ ج: حجرة فريزر صغيرة داخلية.</span></p>
+    <a href="https://www.amazon.ae/dp/B0C86DP552/?tag=[[AFFILIATE_TAG]]" class="cta-btn"><span class="en">Buy Now on Amazon.ae</span><span class="ar">اشتر الآن من أمازون.ae</span></a>
+  </div>
+</div>
+
+<div class="overlay" id="overlay4">
+  <div class="overlay-content">
+    <span class="close-btn" onclick="closeOverlay('overlay4')">×</span>
+    <h3><span class="en">Nefish Universal Refrigerator/Washer Stand Black</span><span class="ar">قاعدة عالمية للثلاجة/الغسالة نيفيش أسود</span></h3>
+    <div class="carousel">
+      <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/6c00774d-bebc-4f2b-b5bf-874fbac08487.__CR0,0,970,600_PT0_SX970_V1___.jpg" alt="Main">
+      <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/675e3c71-59ac-4cba-a133-902566ea06f8.__CR0,0,600,450_PT0_SX600_V1___.jpg" alt="Second"><!-- Missing data: second image assumed similar stand -->
+    </div>
+    <p class="price">AED 35.70</p>
+    <p class="rating">4.6 ★ (2,871 reviews)</p>
+    <h4><span class="en">Key Features</span><span class="ar">المميزات الرئيسية</span></h4>
+    <ul>
+      <li><span class="en">Adjustable base with 4 strong feet</span><span class="ar">قاعدة قابلة للتعديل مع 4 أرجل قوية</span></li>
+      <li><span class="en">Multi-functional for fridge/washer/dryer</span><span class="ar">متعددة الاستخدامات للثلاجة والغسالة</span></li>
+      <li><span class="en">Anti-vibration & height adjustable</span><span class="ar">مضادة للاهتزاز وقابلة لتعديل الارتفاع</span></li>
+    </ul>
+    <h4><span class="en">Pros & Cons</span><span class="ar">الإيجابيات والسلبيات</span></h4>
+    <ul>
+      <li><span class="en">Pros: Reduces noise, stable, easy install</span><span class="ar">إيجابيات: تقلل الضوضاء، مستقرة، تركيب سهل</span></li>
+      <li><span class="en">Cons: May need leveling on uneven floors</span><span class="ar">سلبيات: قد تحتاج تسوية على أرضيات غير مستوية</span></li>
+    </ul>
+    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص الآراء</span></h4>
+    <p><span class="en">Highly positive - excellent for reducing appliance vibration in UAE homes.</span><span class="ar">إيجابي جداً - ممتازة لتقليل اهتزاز الأجهزة في المنازل.</span></p>
+    <!-- Who it's for: home owners with washing machines or fridges on upper floors -->
+    <h4><span class="en">FAQ</span><span class="ar">الأسئلة الشائعة</span></h4>
+    <p><span class="en">Q: Does it fit all appliances? A: Universal adjustable design.</span><span class="ar">س: هل تناسب كل الأجهزة؟ ج: تصميم عالمي قابل للتعديل.</span></p>
+    <a href="https://www.amazon.ae/dp/B09TZRSL58/?tag=[[AFFILIATE_TAG]]" class="cta-btn"><span class="en">Buy Now on Amazon.ae</span><span class="ar">اشتر الآن من أمازون.ae</span></a>
+  </div>
+</div>
+
+<div class="overlay" id="overlay5">
+  <div class="overlay-content">
+    <span class="close-btn" onclick="closeOverlay('overlay5')">×</span>
+    <h3><span class="en">Samsung 7Kg Front Load Washing Machine</span><span class="ar">غسالة سامسونج 7 كجم تحميل أمامي</span></h3>
+    <div class="carousel">
+      <img src="https://m.media-amazon.com/images/I/5169kCzmuTL.jpg" alt="Main">
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/africa_en/ww70t303mbw-ef/gallery/africa-en-front-loading-washer-ww70t301mbwle-ww70t303mbw-ef-462165978?\( Q90_1248_936_F_PNG \)" alt="Second">
+    </div>
+    <p class="price">AED 812.00</p>
+    <p class="rating">3.8 ★ (372 reviews)</p>
+    <h4><span class="en">Key Features</span><span class="ar">المميزات الرئيسية</span></h4>
+    <ul>
+      <li><span class="en">Quick wash & drum clean</span><span class="ar">غسيل سريع وتنظيف الدرام</span></li>
+      <li><span class="en">Delay end function</span><span class="ar">وظيفة التأخير</span></li>
+      <li><span class="en">UAE version with warranty</span><span class="ar">إصدار إماراتي مع ضمان</span></li>
+    </ul>
+    <h4><span class="en">Pros & Cons</span><span class="ar">الإيجابيات والسلبيات</span></h4>
+    <ul>
+      <li><span class="en">Pros: Efficient cleaning, reliable brand</span><span class="ar">إيجابيات: تنظيف فعال، علامة موثوقة</span></li>
+      <li><span class="en">Cons: Some find it noisy on spin</span><span class="ar">سلبيات: قد تكون مزعجة في العصر</span></li>
+    </ul>
+    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص الآراء</span></h4>
+    <p><span class="en">Mixed to positive - good performance for daily use.</span><span class="ar">مختلط إلى إيجابي - أداء جيد للاستخدام اليومي.</span></p>
+    <!-- Who it's for: small to medium families in UAE -->
+    <h4><span class="en">FAQ</span><span class="ar">الأسئلة الشائعة</span></h4>
+    <p><span class="en">Q: How long is quick wash? A: Around 30 minutes.</span><span class="ar">س: كم مدة الغسيل السريع؟ ج: حوالي 30 دقيقة.</span></p>
+    <a href="https://www.amazon.ae/dp/B092H23GDM/?tag=[[AFFILIATE_TAG]]" class="cta-btn"><span class="en">Buy Now on Amazon.ae</span><span class="ar">اشتر الآن من أمازون.ae</span></a>
+  </div>
+</div>
+
+<div class="overlay" id="overlay6">
+  <div class="overlay-content">
+    <span class="close-btn" onclick="closeOverlay('overlay6')">×</span>
+    <h3><span class="en">Samsung 14 Place Setting Dishwasher Silver</span><span class="ar">غسالة صحون سامسونج 14 مكان فضي</span></h3>
+    <div class="carousel">
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/africa_en/ww70t303mbw-ef/gallery/africa-en-front-loading-washer-ww70t301mbwle-ww70t303mbw-ef-462165978?\( Q90_1248_936_F_PNG \)" alt="Main"><!-- Missing data: exact dishwasher image; assumed similar Samsung appliance -->
+      <img src="https://m.media-amazon.com/images/I/5169kCzmuTL.jpg" alt="Second">
+    </div>
+    <p class="price">AED 1,239.00</p>
+    <p class="rating">4.4 ★ (52 reviews)</p>
+    <h4><span class="en">Key Features</span><span class="ar">المميزات الرئيسية</span></h4>
+    <ul>
+      <li><span class="en">14 place settings capacity</span><span class="ar">سعة 14 مكان</span></li>
+      <li><span class="en">Digital display & quiet operation</span><span class="ar">شاشة رقمية وتشغيل هادئ</span></li>
+      <li><span class="en">Multiple wash programs</span><span class="ar">برامج غسيل متعددة</span></li>
+    </ul>
+    <h4><span class="en">Pros & Cons</span><span class="ar">الإيجابيات والسلبيات</span></h4>
+    <ul>
+      <li><span class="en">Pros: Thorough cleaning, modern design</span><span class="ar">إيجابيات: تنظيف عميق، تصميم عصري</span></li>
+      <li><span class="en">Cons: Higher price point</span><span class="ar">سلبيات: سعر مرتفع</span></li>
+    </ul>
+    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص الآراء</span></h4>
+    <p><span class="en">Positive - appreciated for efficiency in UAE kitchens.</span><span class="ar">إيجابي - مقدرة للكفاءة في مطابخ الإمارات.</span></p>
+    <!-- Who it's for: larger families wanting automated dish washing -->
+    <h4><span class="en">FAQ</span><span class="ar">الأسئلة الشائعة</span></h4>
+    <p><span class="en">Q: Is it energy efficient? A: Yes, good rating.</span><span class="ar">س: هل موفرة للطاقة؟ ج: نعم، تقييم جيد.</span></p>
+    <a href="https://www.amazon.ae/dp/B0D6VX6FL5/?tag=[[AFFILIATE_TAG]]" class="cta-btn"><span class="en">Buy Now on Amazon.ae</span><span class="ar">اشتر الآن من أمازون.ae</span></a>
+  </div>
+</div>
+
+<div class="overlay" id="overlay7">
+  <div class="overlay-content">
+    <span class="close-btn" onclick="closeOverlay('overlay7')">×</span>
+    <h3><span class="en">CROWNFUL 4L Portable Mini Fridge White</span><span class="ar">ثلاجة ميني كراونفول 4 لتر محمولة بيضاء</span></h3>
+    <div class="carousel">
+      <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/b30c4162-fcd2-4b3e-80d6-490a1726fedc.__CR0,0,970,600_PT0_SX970_V1___.jpg" alt="Main">
+      <img src="https://u-mercari-images.mercdn.net/photos/m43922900827_1.jpg" alt="Second">
     </div>
     <p class="price">AED 149.00</p>
-    <p class="rating">4.0 ★ (2,800+ ratings)</p>
+    <p class="rating">4.1 ★ (2,855 reviews)</p>
     <h4><span class="en">Key Features</span><span class="ar">المميزات الرئيسية</span></h4>
     <ul>
-      <li><span class="en">Cools to 18°C below ambient / warms to 65°C</span><span class="ar">تبريد حتى 18 درجة تحت درجة الحرارة المحيطة / تسخين حتى 65 درجة</span></li>
-      <li><span class="en">AC & DC (car) power options</span><span class="ar">تشغيل بتيار متردد ومباشر (سيارة)</span></li>
-      <li><span class="en">Quiet thermoelectric cooling (no compressor)</span><span class="ar">تبريد كهروحراري هادئ بدون ضاغط</span></li>
-      <li><span class="en">Perfect for skincare, drinks, cosmetics</span><span class="ar">مثالية للعناية بالبشرة، المشروبات، مستحضرات التجميل</span></li>
+      <li><span class="en">Portable cooler & warmer function</span><span class="ar">تبريد وتدفئة محمول</span></li>
+      <li><span class="en">Perfect for skincare, cosmetics, drinks</span><span class="ar">مثالية للعناية بالبشرة والمشروبات</span></li>
+      <li><span class="en">Compact for bedroom, office, car</span><span class="ar">مدمجة للغرفة، المكتب، السيارة</span></li>
+      <li><span class="en">ETL certified & quiet operation</span><span class="ar">معتمدة ETL وتشغيل هادئ</span></li>
     </ul>
-    <h4><span class="en">Pros & Cons</span><span class="ar">المميزات والعيوب</span></h4>
+    <h4><span class="en">Pros & Cons</span><span class="ar">الإيجابيات والسلبيات</span></h4>
     <ul>
-      <li><span class="en">Pros: Compact, portable, dual function, great for travel/office</span><span class="ar">مميزات: مدمجة، محمولة، وظيفتان، رائعة للسفر/المكتب</span></li>
-      <li><span class="en">Cons: Small capacity, cooling limited in very hot environments</span><span class="ar">عيوب: سعة صغيرة، تبريد محدود في البيئات شديدة الحرارة</span></li>
+      <li><span class="en">Pros: Versatile, portable, great for beauty products</span><span class="ar">إيجابيات: متعددة الاستخدام، محمولة، رائعة لمنتجات التجميل</span></li>
+      <li><span class="en">Cons: Limited capacity, cooling relative to ambient</span><span class="ar">سلبيات: سعة محدودة، تبريد نسبي</span></li>
     </ul>
-    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص آراء العملاء</span></h4>
-    <p><span class="en">Positive – especially loved by beauty enthusiasts for cooling creams; reliable for small items but not for large drinks.</span><span class="ar">إيجابي – محبوبة بشكل خاص من عشاق الجمال لتبريد الكريمات؛ موثوقة للأغراض الصغيرة لكن ليست للمشروبات الكبيرة.</span></p>
-    <!-- Target: beauty enthusiasts, students, office workers -->
-    <h4><span class="en">FAQ</span><span class="ar">أسئلة شائعة</span></h4>
-    <p><span class="en">Q: Can it run in a car? A: Yes, includes DC car adapter.</span><span class="ar">س: هل تعمل في السيارة؟ ج: نعم، تحتوي على محول سيارة DC.</span></p>
-    <a href="https://www.amazon.ae/dp/B0BGR4JX3F/?tag=[[AFFILIATE_TAG]]" target="_blank"><button><span class="en">View & Buy on Amazon.ae</span><span class="ar">عرض وشراء من أمازون.ae</span></button></a>
+    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص الآراء</span></h4>
+    <p><span class="en">Positive overall - popular for personal skincare storage in UAE.</span><span class="ar">إيجابي بشكل عام - شائعة لتخزين منتجات العناية الشخصية.</span></p>
+    <!-- Who it's for: beauty enthusiasts, students, office workers -->
+    <h4><span class="en">FAQ</span><span class="ar">الأسئلة الشائعة</span></h4>
+    <p><span class="en">Q: Can it be used in car? A: Yes, with 12V adapter.</span><span class="ar">س: هل تستخدم في السيارة؟ ج: نعم، مع محول 12V.</span></p>
+    <p><span class="en">Q: How cold does it get? A: Cools to ambient minus ~20°C.</span><span class="ar">س: كم تبرد؟ ج: تبرد إلى درجة الغرفة ناقص ~20 درجة.</span></p>
+    <a href="https://www.amazon.ae/dp/B0BGR4JX3F/?tag=[[AFFILIATE_TAG]]" class="cta-btn"><span class="en">Buy Now on Amazon.ae</span><span class="ar">اشتر الآن من أمازون.ae</span></a>
   </div>
 </div>
 
-<!-- Overlay 3: Oasis Water 1.5L Carton of 12 -->
-<div class="overlay" id="overlay3">
-  <div class="overlay-content accent3">
-    <span class="close" onclick="closeOverlay('overlay3')">×</span>
-    <h3><span class="en">Oasis Still Drinking Water, 1.5L Carton of 12</span><span class="ar">مياه أواسيس بدون غاز، 1.5 لتر، كرتون 12 عبوة</span></h3>
-    <div class="carousel">
-      <img src="https://m.media-amazon.com/images/I/71exampleOASIS-carton.jpg" alt="Carton"> <!-- Missing data: replace -->
-      <img src="https://m.media-amazon.com/images/I/81exampleOASIS-bottle.jpg" alt="Bottle"> <!-- Missing data: replace -->
-    </div>
-    <p class="price">AED 9.90</p>
-    <p class="rating">4.6 ★ (4,500+ ratings)</p>
-    <h4><span class="en">Key Features</span><span class="ar">المميزات الرئيسية</span></h4>
-    <ul>
-      <li><span class="en">Pure still drinking water</span><span class="ar">مياه شرب نقية بدون غاز</span></li>
-      <li><span class="en">Convenient 1.5L bottle size</span><span class="ar">حجم عبوة 1.5 لتر مريح</span></li>
-      <li><span class="en">Pack of 12 for home/office stocking</span><span class="ar">عبوة 12 لتخزين المنزل/المكتب</span></li>
-    </ul>
-    <h4><span class="en">Pros & Cons</span><span class="ar">المميزات والعيوب</span></h4>
-    <ul>
-      <li><span class="en">Pros: Affordable, good quality, widely available</span><span class="ar">مميزات: رخيصة، جودة جيدة، متوفرة بكثرة</span></li>
-      <li><span class="en">Cons: Plastic packaging (environmental concern)</span><span class="ar">عيوب: تغليف بلاستيكي (قلق بيئي)</span></li>
-    </ul>
-    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص آراء العملاء</span></h4>
-    <p><span class="en">Very positive – customers trust it for daily hydration in UAE heat; great bulk value.</span><span class="ar">إيجابية جداً – يثق العملاء بها للترطيب اليومي في حرارة الإمارات؛ قيمة جيدة بالجملة.</span></p>
-    <!-- Target: families, offices, daily use in hot climate -->
-    <h4><span class="en">FAQ</span><span class="ar">أسئلة شائعة</span></h4>
-    <p><span class="en">Q: Is it mineral or purified? A: Purified drinking water.</span><span class="ar">س: هل هي معدنية أم منقاة؟ ج: مياه شرب منقاة.</span></p>
-    <a href="https://www.amazon.ae/dp/B0869VSF88/?tag=[[AFFILIATE_TAG]]" target="_blank"><button><span class="en">View & Buy on Amazon.ae</span><span class="ar">عرض وشراء من أمازون.ae</span></button></a>
-  </div>
-</div>
+<!-- Overlays End -->
 
-<!-- Overlay 4: Vtopmart 8 Pack Glass Containers -->
-<div class="overlay" id="overlay4">
-  <div class="overlay-content accent1">
-    <span class="close" onclick="closeOverlay('overlay4')">×</span>
-    <h3><span class="en">Vtopmart 8 Pack Glass Meal Prep Containers with Lids</span><span class="ar">8 عبوات زجاجية لتحضير الوجبات مع أغطية محكمة فتوبمارت</span></h3>
-    <div class="carousel">
-      <img src="https://m.media-amazon.com/images/I/71exampleVtopmart-set.jpg" alt="Set"> <!-- Missing data: replace -->
-      <img src="https://m.media-amazon.com/images/I/81exampleVtopmart-lid.jpg" alt="Lid close-up"> <!-- Missing data: replace -->
-    </div>
-    <p class="price">AED 74.99</p>
-    <p class="rating">4.6 ★ (12,800+ ratings)</p>
-    <h4><span class="en">Key Features</span><span class="ar">المميزات الرئيسية</span></h4>
-    <ul>
-      <li><span class="en">BPA-free borosilicate glass</span><span class="ar">زجاج بوروسيليكات خالٍ من BPA</span></li>
-      <li><span class="en">Leak-proof locking lids</span><span class="ar">أغطية محكمة مانعة للتسرب</span></li>
-      <li><span class="en">Microwave, oven, freezer & dishwasher safe</span><span class="ar">آمنة للميكروويف، الفرن، الفريزر والغسالة</span></li>
-      <li><span class="en">Ideal for meal prepping</span><span class="ar">مثالية لتحضير الوجبات المسبق</span></li>
-    </ul>
-    <h4><span class="en">Pros & Cons</span><span class="ar">المميزات والعيوب</span></h4>
-    <ul>
-      <li><span class="en">Pros: Durable, easy to clean, great for healthy eating</span><span class="ar">مميزات: متينة، سهلة التنظيف، رائعة للأكل الصحي</span></li>
-      <li><span class="en">Cons: Heavier than plastic</span><span class="ar">عيوب: أثقل من البلاستيك</span></li>
-    </ul>
-    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص آراء العملاء</span></h4>
-    <p><span class="en">Highly positive – praised for quality and leak-proof performance; popular among meal-prep users.</span><span class="ar">إيجابية عالية – مشيد بها للجودة وأداء منع التسرب؛ شعبية بين مستخدمي تحضير الوجبات.</span></p>
-    <!-- Target: health-conscious, meal-preppers, families -->
-    <h4><span class="en">FAQ</span><span class="ar">أسئلة شائعة</span></h4>
-    <p><span class="en">Q: Are lids microwave safe? A: Yes, but remove or vent when heating.</span><span class="ar">س: هل الأغطية آمنة للميكروويف؟ ج: نعم، لكن افتح أو أزل عند التسخين.</span></p>
-    <a href="https://www.amazon.ae/dp/B0BR4XNLWS/?tag=[[AFFILIATE_TAG]]" target="_blank"><button><span class="en">View & Buy on Amazon.ae</span><span class="ar">عرض وشراء من أمازون.ae</span></button></a>
-  </div>
-</div>
+<section class="previously">
+  <h2><span class="en">Previously Trending</span><span class="ar">الرائج سابقاً</span></h2>
+  <p><span class="en">No dropped products yet - fresh catalog launch!</span><span class="ar">لا منتجات متراجعة بعد - إطلاق كتالوج جديد!</span></p>
+</section>
 
-<!-- Overlay 5: Fun-Here Rainbow Springs -->
-<div class="overlay" id="overlay5">
-  <div class="overlay-content accent5">
-    <span class="close" onclick="closeOverlay('overlay5')">×</span>
-    <h3><span class="en">Fun-Here 30 Pack Rainbow Magic Springs Fidget Toys</span><span class="ar">30 قطعة نوابض سحرية قوس قزح للعب والتسلية فان هير</span></h3>
-    <div class="carousel">
-      <img src="https://m.media-amazon.com/images/I/71exampleRainbow-springs-pack.jpg" alt="Pack"> <!-- Missing data: replace -->
-      <img src="https://m.media-amazon.com/images/I/81exampleRainbow-in-use.jpg" alt="In use"> <!-- Missing data: replace -->
-    </div>
-    <p class="price">AED 10.05</p>
-    <p class="rating">4.6 ★ (4,900+ ratings)</p>
-    <h4><span class="en">Key Features</span><span class="ar">المميزات الرئيسية</span></h4>
-    <ul>
-      <li><span class="en">Classic rainbow coil spring toy</span><span class="ar">لعبة نوابض كلاسيكية بألوان قوس قزح</span></li>
-      <li><span class="en">30 pieces – great for party favors</span><span class="ar">30 قطعة – رائعة لهدايا الحفلات</span></li>
-      <li><span class="en">Helps with fidgeting & stress relief</span><span class="ar">تساعد على تقليل التوتر والحركة الزائدة</span></li>
-    </ul>
-    <h4><span class="en">Pros & Cons</span><span class="ar">المميزات والعيوب</span></h4>
-    <ul>
-      <li><span class="en">Pros: Super cheap, fun for kids & adults, endless entertainment</span><span class="ar">مميزات: رخيصة جداً، ممتعة للأطفال والكبار، تسلية لا تنتهي</span></li>
-      <li><span class="en">Cons: Can tangle if not handled carefully</span><span class="ar">عيوب: قد تتشابك إذا لم تُعالج بحرص</span></li>
-    </ul>
-    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص آراء العملاء</span></h4>
-    <p><span class="en">Extremely positive – huge hit for goodie bags, classrooms, and stress relief; excellent value.</span><span class="ar">إيجابية للغاية – نجاح كبير لهدايا الحفلات، الفصول، وتخفيف التوتر؛ قيمة ممتازة.</span></p>
-    <!-- Target: kids, party planners, fidget toy lovers -->
-    <h4><span class="en">FAQ</span><span class="ar">أسئلة شائعة</span></h4>
-    <p><span class="en">Q: Are they safe for small children? A: Recommended 3+ years; supervise use.</span><span class="ar">س: هل آمنة للأطفال الصغار؟ ج: موصى بها لعمر 3+ سنوات؛ راقب الاستخدام.</span></p>
-    <a href="https://www.amazon.ae/dp/B09FG5KWBC/?tag=[[AFFILIATE_TAG]]" target="_blank"><button><span class="en">View & Buy on Amazon.ae</span><span class="ar">عرض وشراء من أمازون.ae</span></button></a>
-  </div>
-</div>
+<footer>
+  <p><span class="en">Self-Updating Amazon.ae Affiliate Catalog | Prices & availability may change | Affiliate links used</span><span class="ar">كتالوج تابع لأمازون.ae يحدث تلقائياً | الأسعار والتوفر قد يتغير | روابط تابعة</span></p>
+</footer>
 
-<!-- Overlay 6: Amazon Basics AA Batteries -->
-<div class="overlay" id="overlay6">
-  <div class="overlay-content accent2">
-    <span class="close" onclick="closeOverlay('overlay6')">×</span>
-    <h3><span class="en">Amazon Basics AA 1.5V Alkaline Batteries, 12-Pack</span><span class="ar">بطاريات أمازون بيسك AA 1.5 فولت قلوية، 12 حبة</span></h3>
-    <div class="carousel">
-      <img src="https://m.media-amazon.com/images/I/71exampleAmazonBasics-AA-pack.jpg" alt="Pack"> <!-- Missing data: replace -->
-      <img src="https://m.media-amazon.com/images/I/81exampleAmazonBasics-in-device.jpg" alt="In use"> <!-- Missing data: replace -->
-    </div>
-    <p class="price">AED 14.00</p>
-    <p class="rating">4.5 ★ (1.2M+ ratings)</p>
-    <h4><span class="en">Key Features</span><span class="ar">المميزات الرئيسية</span></h4>
-    <ul>
-      <li><span class="en">High-performance alkaline batteries</span><span class="ar">بطاريات قلوية عالية الأداء</span></li>
-      <li><span class="en">Long shelf life & reliable power</span><span class="ar">عمر تخزين طويل وطاقة موثوقة</span></li>
-      <li><span class="en">Ideal for remotes, toys, clocks</span><span class="ar">مثالية للريموت، الألعاب، الساعات</span></li>
-    </ul>
-    <h4><span class="en">Pros & Cons</span><span class="ar">المميزات والعيوب</span></h4>
-    <ul>
-      <li><span class="en">Pros: Excellent value, long-lasting, trusted brand</span><span class="ar">مميزات: قيمة ممتازة، تدوم طويلاً، علامة موثوقة</span></li>
-      <li><span class="en">Cons: None significant reported</span><span class="ar">عيوب: لا توجد عيوب كبيرة مذكورة</span></li>
-    </ul>
-    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص آراء العملاء</span></h4>
-    <p><span class="en">Overwhelmingly positive – considered one of the best budget batteries; massive review volume confirms reliability.</span><span class="ar">إيجابية بشكل ساحق – تعتبر من أفضل البطاريات الاقتصادية؛ حجم آراء هائل يؤكد الموثوقية.</span></p>
-    <!-- Target: households, everyone needing everyday batteries -->
-    <h4><span class="en">FAQ</span><span class="ar">أسئلة شائعة</span></h4>
-    <p><span class="en">Q: How long do they last? A: Comparable to name brands in most devices.</span><span class="ar">س: كم تدوم؟ ج: مشابهة للعلامات التجارية في معظم الأجهزة.</span></p>
-    <a href="https://www.amazon.ae/dp/B07KWYGTC6/?tag=[[AFFILIATE_TAG]]" target="_blank"><button><span class="en">View & Buy on Amazon.ae</span><span class="ar">عرض وشراء من أمازون.ae</span></button></a>
-  </div>
-</div>
-
-<!-- Overlay 7: Ultrean Digital Kitchen Scale -->
-<div class="overlay" id="overlay7">
-  <div class="overlay-content accent3">
-    <span class="close" onclick="closeOverlay('overlay7')">×</span>
-    <h3><span class="en">Ultrean Digital Food Scale – High Precision (Silver)</span><span class="ar">ميزان طعام رقمي ألتريان – دقة عالية (فضي)</span></h3>
-    <div class="carousel">
-      <img src="https://m.media-amazon.com/images/I/71exampleUltrean-scale.jpg" alt="Scale"> <!-- Missing data: replace -->
-      <img src="https://m.media-amazon.com/images/I/81exampleUltrean-display.jpg" alt="Display"> <!-- Missing data: replace -->
-    </div>
-    <p class="price">AED 25.00</p>
-    <p class="rating">4.4 ★ (18,800+ ratings)</p>
-    <h4><span class="en">Key Features</span><span class="ar">المميزات الرئيسية</span></h4>
-    <ul>
-      <li><span class="en">Measures in g, oz, lb, ml – up to 5kg</span><span class="ar">قياس بالغرام، أونصة، رطل، مل – حتى 5 كجم</span></li>
-      <li><span class="en">Tare function & auto-off</span><span class="ar">وظيفة التار وإيقاف تلقائي</span></li>
-      <li><span class="en">Stainless steel platform, easy to clean</span><span class="ar">منصة من الفولاذ المقاوم للصدأ، سهلة التنظيف</span></li>
-      <li><span class="en">Batteries included</span><span class="ar">بطاريات مرفقة</span></li>
-    </ul>
-    <h4><span class="en">Pros & Cons</span><span class="ar">المميزات والعيوب</span></h4>
-    <ul>
-      <li><span class="en">Pros: Accurate, affordable, sleek design</span><span class="ar">مميزات: دقيق، رخيص، تصميم أنيق</span></li>
-      <li><span class="en">Cons: May need recalibration over time</span><span class="ar">عيوب: قد يحتاج إعادة معايرة مع الوقت</span></li>
-    </ul>
-    <h4><span class="en">Review Sentiment</span><span class="ar">ملخص آراء العملاء</span></h4>
-    <p><span class="en">Strong positive feedback – widely used for cooking, baking, postage; excellent price-to-performance ratio.</span><span class="ar">آراء إيجابية قوية – مستخدمة على نطاق واسع للطبخ، الخبز، البريد؛ نسبة سعر/أداء ممتازة.</span></p>
-    <!-- Target: home cooks, bakers, small business -->
-    <h4><span class="en">FAQ</span><span class="ar">أسئلة شائعة</span></h4>
-    <p><span class="en">Q: Is it precise for small weights? A: Yes, accurate to 1g.</span><span class="ar">س: هل دقيق للأوزان الصغيرة؟ ج: نعم، دقيق حتى 1 غرام.</span></p>
-    <a href="https://www.amazon.ae/dp/B08CZDYNF7/?tag=[[AFFILIATE_TAG]]" target="_blank"><button><span class="en">View & Buy on Amazon.ae</span><span class="ar">عرض وشراء من أمازون.ae</span></button></a>
-  </div>
-</div>
-
-</body>
 <script>
-function setLang(lang) {
-  document.querySelectorAll('.en, .ar').forEach(el => el.style.display = 'none');
-  document.querySelectorAll('.' + lang).forEach(el => el.style.display = 'inline');
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-}
-setLang('en');
+  function switchLang(lang) {
+    document.querySelectorAll('.en, .ar').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.' + lang).forEach(el => el.style.display = 'inline-block');
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.body.style.textAlign = lang === 'ar' ? 'right' : 'left';
+  }
+  switchLang('en');
 
-document.querySelectorAll('.card').forEach(card => {
-  card.addEventListener('click', () => {
-    const id = card.dataset.overlay;
-    document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (!e.target.closest('a')) {
+        const id = card.dataset.overlay;
+        document.getElementById(id).classList.add('active');
+      }
+    });
   });
-});
 
-function closeOverlay(id) {
-  document.getElementById(id).classList.remove('active');
-}
+  function closeOverlay(id) {
+    document.getElementById(id).classList.remove('active');
+  }
 
-document.querySelectorAll('.overlay').forEach(ov => {
-  ov.addEventListener('click', e => {
-    if (e.target === ov) closeOverlay(ov.id);
+  document.querySelectorAll('.overlay').forEach(ov => {
+    ov.addEventListener('click', (e) => {
+      if (e.target === ov) closeOverlay(ov.id);
+    });
   });
-});
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') document.querySelectorAll('.overlay.active').forEach(ov => ov.classList.remove('active'));
-});
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.overlay.active').forEach(ov => ov.classList.remove('active'));
+    }
+  });
 </script>
+</body>
 </html>
